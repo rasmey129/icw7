@@ -49,24 +49,31 @@ class _FadingTextAnimationState extends State<FadingTextAnimation> {
                 ),
               ),
             ),
-            
             Container(
               decoration: _showFrame? BoxDecoration(
-                      border: Border.all(color: Colors.blue, width: 2), 
-                      borderRadius: BorderRadius.circular(16), 
+                      border: Border.all(color: Colors.blue, width: 8), 
+                      borderRadius: BorderRadius.circular(23), 
                     )
                   : null, 
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16), 
                 child: Image.network(
                   'https://cdn-7.motorsport.com/images/amp/YKEZbVX0/s1000/ferrari-499p-1.jpg', 
-                  width: 200, 
+                  width: 200,   
                   height: 100,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
-          
+          SwitchListTile( //essentially the same thing as SwitchMe but built into flutter
+              title: const Text('Show Frame'),
+              value: _showFrame, 
+              onChanged: (bool value) {
+                setState(() {
+                  _showFrame = value;
+                });
+              },
+            ),
           ],
         ),
       ),
